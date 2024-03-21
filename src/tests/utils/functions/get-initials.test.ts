@@ -1,6 +1,6 @@
 // eslint-disable
 import { expect, test, describe } from 'vitest';
-import { getInitials } from '../../../utils/functions';
+import { getInitials, letterCounter } from '../../../utils/functions';
 
 const NAMES = {
     single: "Nutifafa",
@@ -29,3 +29,39 @@ describe("Get Initials Function", () => {
         expect(getInitials((123))).toBe("NA");
     });
 });
+
+
+describe("Count letters", () => {
+
+    test("given an undefined value: it returns 0 as the letter count", () => {
+        const word = undefined as unknown as string
+        const actual = letterCounter(word)
+        const expected = {
+            letterCount: 0,
+            vowelCount: 0,
+            consonantCount: 0
+        }
+        expect(actual).toEqual(expected)
+    })
+
+    test("given a string: it returns the count of the string", () => {
+        const word = "Lorem"
+        const actual = letterCounter(word)
+        const expected = 5
+        expect(actual.letterCount).toEqual(expected)
+    })
+
+    test("given a string: it returns an object with property vowel count", () => {
+        const word = "Lorem Ipsum"
+        const actual = letterCounter(word)
+        const expected = 4
+        expect(actual.vowelCount).toEqual(expected)
+    })
+
+    test("given a string: it returns an object with property consonant count", () => {
+        const word = "Lorem Ipsum"
+        const actual = letterCounter(word)
+        const expected = 6
+        expect(actual.consonantCount).toEqual(expected)
+    })
+})

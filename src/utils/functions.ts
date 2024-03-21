@@ -19,3 +19,18 @@ export function getInitials(fullName: string): string {
         return _.toUpper(`${names[0][0]}${names[names.length - 1][0]}`);
     }
 }
+
+export function letterCounter(word: string) {
+
+    const vowels = ['a','e','i','o','u']
+
+    const characters = word?.replaceAll(" ", "").split('')
+
+    let vowelCount = characters?.filter((letter: string) => vowels.includes(letter.toLowerCase()))
+
+    return {
+        letterCount: word?.length || 0,
+        vowelCount: vowelCount?.length || 0,
+        consonantCount: (characters?.length - vowelCount?.length) || 0 
+    }
+}
