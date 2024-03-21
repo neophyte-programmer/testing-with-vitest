@@ -26,6 +26,6 @@ describe("Get Initials Function", () => {
     })
 
     test("should return NA if input is not a string", () => {
-        expect(getInitials({})).toBe("NA");
+        expect(getInitials((123))).toBe("NA");
     });
 });
