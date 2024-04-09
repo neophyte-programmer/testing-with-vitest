@@ -18,7 +18,7 @@ export default function calculateProfit(costPrice: number, sellingPrice: number,
     const __sellingPrice = _.toNumber(sellingPrice)
     const __quantity = _.toNumber(quantity)
 
-    console.log(__costPrice, __sellingPrice, __quantity)
+    // console.log(__costPrice, __sellingPrice, __quantity)
 
 
 
